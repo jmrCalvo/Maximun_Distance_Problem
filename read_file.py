@@ -10,6 +10,7 @@ def create_array(fileName):
         matrix = initialize_matrix(first_line.split()[0])
         for line in my_file:
             matrix[int(line.split()[0])][int(line.split()[1])]=float(line.split()[2])
+            matrix[int(line.split()[1])][int(line.split()[0])]=float(line.split()[2])
     return (matrix, int(first_line.split()[1]))
 
 
