@@ -1,4 +1,5 @@
 import numpy as np
+
 def nextElemnt(selected_elements,possible_elements ):
     possible_elements_copy = np.array(possible_elements, copy=True)
     solution=int(np.argmax(possible_elements_copy))
