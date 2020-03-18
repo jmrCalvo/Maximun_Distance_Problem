@@ -6,5 +6,5 @@ def block(arrayForbidenElements, matrix):
         return matrix
     for element in arrayForbidenElements:
         copyMatrix[:,element]=0
-        copyMatrix[element,:]=0
+        #copyMatrix[element,:]=0
     return copyMatrix
