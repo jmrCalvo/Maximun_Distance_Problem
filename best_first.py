@@ -18,18 +18,11 @@ def calculateNeighboursWeights(matrix,initial_pos,forbiddenElements,n_solutions)
     copyMatrix=blockElements.block(forbiddenElements,copyMatrix)
 
     for index in range(matrix[0].size):
-        
-        # if OBJETIVECOUNT >100000:
-        #     print("MORE THAN 100000 CALCULATIONS OF OBJETIVE")
-        #     break
         if index in forbiddenElements:
-            #print("++++++++++esta prohibido",index)
             neighbours[index]=0
             neighboursWay[index]=[]
         else:
-            #print("**********esta posible",index)
             forbiddenElements=np.append(forbiddenElements,initial_pos)
-            #way=greedy.createSolution(index,copyMatrix,n_solutions)
             way=greedy_alg.algorythm(n_solutions,copyMatrix,index)
             neighboursWay[index]=np.insert(way,0,initial_pos)
             neighbours[index]=objective.calculate_sum(matrix,neighboursWay[index])
@@ -51,7 +44,6 @@ def createSolution(initial,matrix,noSolutions):
     global OBJETIVECOUNT
     OBJETIVECOUNT=0
 
-    #solutionActual=greedy.createSolution(initial,matrix,noSolutions)
     solutionActual=greedy_alg.algorythm(noSolutions,matrix,initial)
 
     #the index is from the start until the length of the array minus one,
